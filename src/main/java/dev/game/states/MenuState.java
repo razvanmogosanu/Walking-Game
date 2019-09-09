@@ -28,21 +28,21 @@ public class MenuState extends State {
             State.setState(handler.getGame().gameState);
         }));
 
-        /** RESUME BUTTON */
-        uiManager.addObject(new UIImageButton(Launcher.getScreenXSize() / 2 - 100, 380, 220, 80, Assets.resumeBtn, () -> {
-            if (handler.getGame().gameState == null) return;
-            handler.getMouseManager().setUIManager(null);
-            State.setState(handler.getGame().gameState);
-        }));
-
-        /** OPTIONS BUTTON */
-        uiManager.addObject(new UIImageButton(Launcher.getScreenXSize() / 2 - 100, 460, 220, 80, Assets.optionsBtn, () -> {
-            handler.getMouseManager().setUIManager(null);
-            State.setState(new OptionsState(handler));
-        }));
-
-        /** EXIT BUTTON */
-        uiManager.addObject(new UIImageButton(Launcher.getScreenXSize() / 2 - 80, 530, 220, 80, Assets.exitBtn, () -> System.exit(1)));
+//        /** RESUME BUTTON */
+//        uiManager.addObject(new UIImageButton(Launcher.getScreenXSize() / 2 - 100, 380, 220, 80, Assets.resumeBtn, () -> {
+//            if (handler.getGame().gameState == null) return;
+//            handler.getMouseManager().setUIManager(null);
+//            State.setState(handler.getGame().gameState);
+//        }));
+//
+//        /** OPTIONS BUTTON */
+//        uiManager.addObject(new UIImageButton(Launcher.getScreenXSize() / 2 - 100, 460, 220, 80, Assets.optionsBtn, () -> {
+//            handler.getMouseManager().setUIManager(null);
+//            State.setState(new OptionsState(handler));
+//        }));
+//
+//        /** EXIT BUTTON */
+//        uiManager.addObject(new UIImageButton(Launcher.getScreenXSize() / 2 - 80, 530, 220, 80, Assets.exitBtn, () -> System.exit(1)));
     }
 
     @Override

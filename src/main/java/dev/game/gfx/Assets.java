@@ -11,7 +11,7 @@ public class Assets {
     public static BufferedImage NPC, NPC2;
     private static final int width = 16, height = 16;
     public static void init(){
-        SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/images.png"));
+        SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/images1.png"));
         SpriteSheet second = new SpriteSheet(ImageLoader.loadImage("/textures/dungeontileset.png"));
 
         //BACKGROUND
@@ -21,20 +21,20 @@ public class Assets {
         //MENU
 
         playBtn = new BufferedImage[2];
-        playBtn[0] = sheet.crop(0, 547+71, 188, 71);
-        playBtn[1] = sheet.crop(0, 547+142, 188, 71);
-
-        resumeBtn = new BufferedImage[2];
-        resumeBtn[0] = sheet.crop(0, 193, 188, 71);
-        resumeBtn[1] = sheet.crop(0, 193 + 71, 188, 71);
-
-        optionsBtn = new BufferedImage[2];
-        optionsBtn[0] = sheet.crop(0, 476, 188, 71);
-        optionsBtn[1] = sheet.crop(0, 547, 188, 71);
-
-        exitBtn = new BufferedImage[2];
-        exitBtn[0] = sheet.crop(0, 193 + 71 + 71, 188, 71);
-        exitBtn[1] = sheet.crop(0, 193 + 71 + 71 + 71, 188, 71);
+        playBtn[0] = sheet.crop(0, 16, 229, 72);
+        playBtn[1] = sheet.crop(0, 88, 229, 72);
+//
+//        resumeBtn = new BufferedImage[2];
+//        resumeBtn[0] = sheet.crop(0, 193, 188, 71);
+//        resumeBtn[1] = sheet.crop(0, 193 + 71, 188, 71);
+//
+//        optionsBtn = new BufferedImage[2];
+//        optionsBtn[0] = sheet.crop(0, 476, 188, 71);
+//        optionsBtn[1] = sheet.crop(0, 547, 188, 71);
+//
+//        exitBtn = new BufferedImage[2];
+//        exitBtn[0] = sheet.crop(0, 193 + 71 + 71, 188, 71);
+//        exitBtn[1] = sheet.crop(0, 193 + 71 + 71 + 71, 188, 71);
         //IN GAME
 
         //statics
@@ -88,8 +88,8 @@ public class Assets {
         player_left[7] = second.crop(128 + 16 + 16 + 16 + 16 + 16 + 16 + 16,163,16,27);
 
 
-        NPC = sheet.crop(2* width,4*height, width, height);
-        NPC2 = sheet.crop(width,5*height, width, height);
+//        NPC = sheet.crop(2* width,4*height, width, height);
+//        NPC2 = sheet.crop(width,5*height, width, height);
 
         //WALLS
         wallMid = second.crop(17,12,16,16);
