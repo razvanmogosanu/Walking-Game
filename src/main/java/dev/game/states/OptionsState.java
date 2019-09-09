@@ -1,0 +1,41 @@
+package dev.game.states;
+
+import dev.game.Handler;
+import dev.game.Launcher;
+import dev.game.gfx.Assets;
+import dev.game.ui.ClickListener;
+import dev.game.ui.UIImageButton;
+import dev.game.ui.UIManager;
+
+import java.awt.*;
+
+public class OptionsState extends State {
+    private UIManager uiManager;
+
+    public OptionsState(Handler handler) {
+        super(handler);
+        uiManager = new UIManager(handler);
+        handler.getMouseManager().setUIManager(uiManager);
+
+
+        uiManager.addObject(new UIImageButton(435, 250, 160, 68, Assets.resumeBtn, new ClickListener() {
+            @Override
+            public void onClick() {
+                handler.getMouseManager().setUIManager(null);
+                State.setState(new MenuState(handler));
+            }
+        }));
+    }
+
+    @Override
+    public void tick() {
+        uiManager.tick();
+    }
+
+    @Override
+    public void render(Graphics g) {
+        g.drawImage(Assets.background2, 0, 0, Launcher.getScreenXSize(), Launcher.getScreenYSize(), null);
+        uiManager.render(g);
+    }
+
+}
