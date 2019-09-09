@@ -5,14 +5,15 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 
 public class Utils {
 
     public static String loadFileAsString(String path){
         StringBuilder builder = new StringBuilder();
         try {
-            FileReader r = new FileReader(Utils.class.getClassLoader()
-                .getResource("worlds/world1.txt").getPath());
+            FileReader r = new FileReader(Objects.requireNonNull(Utils.class.getClassLoader()
+                    .getResource("worlds/world1.txt")).getPath());
             BufferedReader br = new BufferedReader(r);
             String line;
             while((line = br.readLine()) != null)

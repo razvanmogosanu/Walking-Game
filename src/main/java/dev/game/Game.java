@@ -56,7 +56,7 @@ public class Game implements Runnable {
         this.title = title;
         keyManager = new KeyManager();
         mouseManager = new MouseManager();
-        Sound sound = new Sound();
+        Sound sound = new Sound("gameover.wav");
     }
 
     private void init() throws InterruptedException {
@@ -160,10 +160,6 @@ public class Game implements Runnable {
         }
     }
 
-    public void setMouseManager(MouseManager mouseManager) {
-        this.mouseManager = mouseManager;
-    }
-
     public MouseManager getMouseManager(){return mouseManager;}
 
     public KeyManager getKeyManager() {
@@ -172,22 +168,6 @@ public class Game implements Runnable {
 
     public GameCamera getGameCamera(){
         return gameCamera;
-    }
-
-    public MenuState getMenuState() {
-        return menuState;
-    }
-
-    public UIManager getUiManager(){
-        return menuState.getUiManager();
-    }
-
-    public Display getDisplay() {
-        return display;
-    }
-
-    public void setDisplay(Display display) {
-        this.display = display;
     }
 
     public Graphics getG() {

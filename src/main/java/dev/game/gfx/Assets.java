@@ -1,7 +1,5 @@
 package dev.game.gfx;
 
-import javafx.print.PageLayout;
-
 import java.awt.image.BufferedImage;
 
 public class Assets {

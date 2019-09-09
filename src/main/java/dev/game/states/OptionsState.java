@@ -3,7 +3,6 @@ package dev.game.states;
 import dev.game.Handler;
 import dev.game.Launcher;
 import dev.game.gfx.Assets;
-import dev.game.ui.ClickListener;
 import dev.game.ui.UIImageButton;
 import dev.game.ui.UIManager;
 
@@ -12,18 +11,15 @@ import java.awt.*;
 public class OptionsState extends State {
     private UIManager uiManager;
 
-    public OptionsState(Handler handler) {
+    OptionsState(Handler handler) {
         super(handler);
         uiManager = new UIManager(handler);
         handler.getMouseManager().setUIManager(uiManager);
 
 
-        uiManager.addObject(new UIImageButton(435, 250, 160, 68, Assets.resumeBtn, new ClickListener() {
-            @Override
-            public void onClick() {
-                handler.getMouseManager().setUIManager(null);
-                State.setState(new MenuState(handler));
-            }
+        uiManager.addObject(new UIImageButton(435, 250, 160, 68, Assets.resumeBtn, () -> {
+            handler.getMouseManager().setUIManager(null);
+            State.setState(new MenuState(handler));
         }));
     }
 

@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.net.URL;
 
 public class Sound {
-    public Sound() {
+    public Sound(String filename) {
         try {
             // Open an audio input stream.
-            URL url = this.getClass().getClassLoader().getResource("gameover.wav");
+            URL url = this.getClass().getClassLoader().getResource(filename);
             AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
             // Get a sound clip resource.
             Clip clip = AudioSystem.getClip();
@@ -16,13 +16,7 @@ public class Sound {
             clip.open(audioIn);
             clip.start();
         } catch (
-                UnsupportedAudioFileException e) {
-            e.printStackTrace();
-        } catch (
-                IOException e) {
-            e.printStackTrace();
-        } catch (
-                LineUnavailableException e) {
+                UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }
     }

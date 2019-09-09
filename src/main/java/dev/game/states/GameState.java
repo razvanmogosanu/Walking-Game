@@ -9,7 +9,7 @@ public class GameState extends State {
 
     private World world;
 
-    public GameState(Handler handler){
+    GameState(Handler handler){
         super(handler);
         world = new World(handler, "worlds/world1.txt");
         handler.setWorld(world);

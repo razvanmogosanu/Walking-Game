@@ -8,7 +8,8 @@ import java.awt.*;
 public abstract class State {
     private static State currentState = null;
 
-    public  abstract void tick();
+    public abstract void tick();
+
     public abstract void render(Graphics g);
 
     protected Game game;
@@ -21,7 +22,8 @@ public abstract class State {
     public static State getCurrentState() {
         return currentState;
     }
-    public static void setState(State state){
+
+    public static void setState(State state) {
         currentState = state;
     }
 
