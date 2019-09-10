@@ -16,25 +16,26 @@ public class Assets {
 
         //BACKGROUND
         background = ImageLoader.loadImage("/textures/background.jpg");
-        background2 = ImageLoader.loadImage("/textures/background2.jpg");
+        background2 = ImageLoader.loadImage("/textures/background.jpg");
 
         //MENU
 
         playBtn = new BufferedImage[2];
         playBtn[0] = sheet.crop(0, 16, 229, 72);
         playBtn[1] = sheet.crop(0, 88, 229, 72);
-//
-//        resumeBtn = new BufferedImage[2];
-//        resumeBtn[0] = sheet.crop(0, 193, 188, 71);
-//        resumeBtn[1] = sheet.crop(0, 193 + 71, 188, 71);
-//
-//        optionsBtn = new BufferedImage[2];
-//        optionsBtn[0] = sheet.crop(0, 476, 188, 71);
-//        optionsBtn[1] = sheet.crop(0, 547, 188, 71);
-//
-//        exitBtn = new BufferedImage[2];
-//        exitBtn[0] = sheet.crop(0, 193 + 71 + 71, 188, 71);
-//        exitBtn[1] = sheet.crop(0, 193 + 71 + 71 + 71, 188, 71);
+
+        resumeBtn = new BufferedImage[3];
+        resumeBtn[0] = sheet.crop(0, 304, 220, 72);
+        resumeBtn[1] = sheet.crop(0, 376, 220, 72);
+        resumeBtn[2] = sheet.crop(0, 520+72,229,72 );
+
+        optionsBtn = new BufferedImage[2];
+        optionsBtn[0] = sheet.crop(0, 160, 220, 72);
+        optionsBtn[1] = sheet.crop(0, 232, 220, 72);
+
+        exitBtn = new BufferedImage[2];
+        exitBtn[0] = sheet.crop(0, 376+72, 152, 72);
+        exitBtn[1] = sheet.crop(0, 520, 152, 72);
         //IN GAME
 
         //statics

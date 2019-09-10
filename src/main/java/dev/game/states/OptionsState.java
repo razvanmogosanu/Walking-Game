@@ -17,7 +17,7 @@ public class OptionsState extends State {
         handler.getMouseManager().setUIManager(uiManager);
 
 
-        uiManager.addObject(new UIImageButton(435, 250, 160, 68, Assets.resumeBtn, () -> {
+        uiManager.addObject(new UIImageButton(handler,435, 250, 160, 68, Assets.resumeBtn, () -> {
             handler.getMouseManager().setUIManager(null);
             State.setState(new MenuState(handler));
         }));
