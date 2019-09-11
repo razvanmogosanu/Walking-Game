@@ -18,7 +18,7 @@ public class MenuState extends State {
         handler.getMouseManager().setUIManager(uiManager);
 
         /** START BUTTON */
-        uiManager.addObject(new UIImageButton(handler,Launcher.getScreenXSize() / 2 - 100, 350, 220, 72, Assets.playBtn, () -> {
+        uiManager.addObject(new UIImageButton(handler,Launcher.getScreenXSize() / 2 - 100, 350, 220, 72, Assets.newGameBtn, () -> {
             handler.getMouseManager().setUIManager(null);
             handler.getGame().gameState = new GameState(handler);
             State.setState(handler.getGame().gameState);

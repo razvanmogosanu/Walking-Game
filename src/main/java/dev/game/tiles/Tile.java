@@ -8,7 +8,6 @@ public class Tile {
     public static Tile[] tiles = new Tile[256];
     public static Tile blankSpace = new BlankSpaceTile(0);
     public static Tile grassTile = new GrassTile(1);
-    public static Tile dirtTile = new DirtTile(2);
     public static Tile rockTile = new RockTile(3);
     public static Tile wallMidTile = new WallMidTile(4);
     public static Tile wallLeft = new WallLeftTile(5);

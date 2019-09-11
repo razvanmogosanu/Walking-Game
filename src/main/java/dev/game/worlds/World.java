@@ -55,7 +55,7 @@ public class World {
 
         Tile t = Tile.tiles[tiles[x][y]];
         if (t == null)
-            return Tile.dirtTile;
+            return Tile.grassTile;
         return t;
     }
 

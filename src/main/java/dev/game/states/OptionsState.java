@@ -30,7 +30,7 @@ public class OptionsState extends State {
 
     @Override
     public void render(Graphics g) {
-        g.drawImage(Assets.background2, 0, 0, Launcher.getScreenXSize(), Launcher.getScreenYSize(), null);
+        g.drawImage(Assets.background, 0, 0, Launcher.getScreenXSize(), Launcher.getScreenYSize(), null);
         uiManager.render(g);
     }
 
