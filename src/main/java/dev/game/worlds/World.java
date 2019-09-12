@@ -51,11 +51,11 @@ public class World {
 
     public Tile getTile(int x, int y) {
         if (x < 0 || y < 0 || x >= width || y >= height)
-            return Tile.grassTile;
+            return Tile.blankSpace;
 
         Tile t = Tile.tiles[tiles[x][y]];
         if (t == null)
-            return Tile.grassTile;
+            return Tile.blankSpace;
         return t;
     }
 
