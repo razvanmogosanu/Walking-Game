@@ -11,7 +11,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Player extends Creature {
-    private Animation animRight, animUp, animDown, animLeft, animStand;
+    private Animation animRight, animUp, animDown, animLeft;
 
     public Player(Handler handler, float x, float y) {
         super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
@@ -26,7 +26,7 @@ public class Player extends Creature {
         animUp = new Animation(125, Assets.player_up);
         animDown = new Animation(125, Assets.player_down);
         animLeft = new Animation(125, Assets.player_left);
-        animStand = new Animation(750, Assets.player_stand);
+
     }
 
     @Override
@@ -36,7 +36,7 @@ public class Player extends Creature {
         animUp.tick();
         animDown.tick();
         animLeft.tick();
-        animStand.tick();
+
         /** Movement */
         getInput();
         move();
@@ -91,6 +91,6 @@ public class Player extends Creature {
         if (lastFrame == 3) return animRight.getLastDirection();
         if (lastFrame == 4) return animLeft.getLastDirection();
 
-        return animStand.getCurrentFrame();
+        return Assets.player_down[0];
     }
 }

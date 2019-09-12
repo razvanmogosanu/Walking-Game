@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 public class Assets {
     public static BufferedImage floorTile,stone;
     public static BufferedImage wallMid, blankSpace, wallLeft, wallLeftCorner, wallTop, wallRight, wallBottomRightCorner, wallTopLeftCorner, wallTopRightCorner;
-    public static BufferedImage[] player_stand, player_right, player_left, player_up, player_down;
+    public static BufferedImage[] player_right, player_left, player_up, player_down;
     public static BufferedImage[] newGameBtn, resumeBtn, exitBtn, optionsBtn;
     public static BufferedImage background;
     public static BufferedImage NPC, NPC2;
@@ -44,13 +44,11 @@ public class Assets {
         int playerDownY = 135, playerUpY = 196, playerRightY = 107, playerLeftY = 163;
         int width = 16, height = 24;
 
-        player_stand = new BufferedImage[2];
         player_up =new BufferedImage[6];
         player_down = new BufferedImage[6];
         player_right = new BufferedImage[8];
         player_left = new BufferedImage[8];
 
-        setFrames(player_stand, dungeonTileset,playerX, playerDownY, width, height, true);
         setFrames(player_up, dungeonTileset,playerX ,playerUpY, width, height,true );
         setFrames(player_down, dungeonTileset,playerX, playerDownY, width, height, true);
         setFrames(player_right, dungeonTileset,playerX, playerRightY, width, height, true);
@@ -59,12 +57,10 @@ public class Assets {
 
     public static void init(){
         SpriteSheet dungeonTileset = new SpriteSheet(ImageLoader.loadImage("/textures/dungeontileset.png"));
-
-        /* MENU */
         background = ImageLoader.loadImage("/textures/background.jpg");
         setButtons();
                             /** IN GAME */
-        //statics
+
         floorTile = dungeonTileset.crop(32, 80,16,16);
 
         setPlayerMovements(dungeonTileset);
@@ -72,15 +68,16 @@ public class Assets {
 //        NPC = sheet.crop(2* width,4*height, width, height);
 //        NPC2 = sheet.crop(width,5*height, width, height);
 
+        int width = 16, height = 16;
         //WALLS
-        wallMid = dungeonTileset.crop(17,12,16,16);
-        wallLeft = dungeonTileset.crop(0,177,16,16);
-        wallLeftCorner = dungeonTileset.crop(0,202,16,16);
-        blankSpace = dungeonTileset.crop(0,420, 16,16);
-        wallTop = dungeonTileset.crop(65,161,16, 16);
-        wallRight = dungeonTileset.crop(12,185,16,16);
-        wallBottomRightCorner = dungeonTileset.crop(39,202,16,16);
-        wallTopLeftCorner = dungeonTileset.crop(0, 162, 16,16);
-        wallTopRightCorner = dungeonTileset.crop(39, 162, 16,16);
+        wallMid = dungeonTileset.crop(17,12, width, height);
+        wallLeft = dungeonTileset.crop(0,177, width, height);
+        wallLeftCorner = dungeonTileset.crop(0,202, width, height);
+        blankSpace = dungeonTileset.crop(0,420, width, height);
+        wallTop = dungeonTileset.crop(65,161, width, height);
+        wallRight = dungeonTileset.crop(12,185, width, height);
+        wallBottomRightCorner = dungeonTileset.crop(39,202, width, height);
+        wallTopLeftCorner = dungeonTileset.crop(0, 162, width, height);
+        wallTopRightCorner = dungeonTileset.crop(39, 162, width, height);
     }
 }
