@@ -3,105 +3,85 @@ package dev.game.gfx;
 import java.awt.image.BufferedImage;
 
 public class Assets {
-    public static BufferedImage dirt,grass,stone;
-    public static BufferedImage wallMid, blankSpace, wallLeft, wallLeftCorner, topWall, rightWall, bottomRightCorner, topLeftCornerWall;
-    public static BufferedImage[] player_stand, player_right, player_left, player_up, player_down;
-    public static BufferedImage[] playBtn, resumeBtn, exitBtn, optionsBtn;
-    public static BufferedImage background,background2;
+    public static BufferedImage floorTile,blankSpace ;
+    public static BufferedImage wallMid, wallLeft, wallLeftCorner, wallTop, wallRight,
+            wallBottomRightCorner, wallTopLeftCorner, wallTopRightCorner, wallInteriorLeftCorner,
+            wallInteriorRightCorner;
+    public static BufferedImage[] player_right, player_left, player_up, player_down;
+    public static BufferedImage[] newGameBtn, resumeBtn, exitBtn, optionsBtn;
+    public static BufferedImage background;
     public static BufferedImage NPC, NPC2;
-    private static final int width = 16, height = 16;
-    public static void init(){
-        SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/images1.png"));
-        SpriteSheet second = new SpriteSheet(ImageLoader.loadImage("/textures/dungeontileset.png"));
 
-        //BACKGROUND
-        background = ImageLoader.loadImage("/textures/background.jpg");
-        background2 = ImageLoader.loadImage("/textures/background.jpg");
+    private static void setButtons() {
+        SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/buttons.png"));
 
-        //MENU
+        int buttonX = 0, buttonY = 0, buttonWidth = 220, buttonWidthExtended = 229,
+                buttonWidthCompacted = 152, buttonHeight = 72;
 
-        playBtn = new BufferedImage[2];
-        playBtn[0] = sheet.crop(0, 16, 229, 72);
-        playBtn[1] = sheet.crop(0, 88, 229, 72);
-
-        resumeBtn = new BufferedImage[3];
-        resumeBtn[0] = sheet.crop(0, 304, 220, 72);
-        resumeBtn[1] = sheet.crop(0, 376, 220, 72);
-        resumeBtn[2] = sheet.crop(0, 520+72,229,72 );
-
+        newGameBtn = new BufferedImage[2];
         optionsBtn = new BufferedImage[2];
-        optionsBtn[0] = sheet.crop(0, 160, 220, 72);
-        optionsBtn[1] = sheet.crop(0, 232, 220, 72);
-
         exitBtn = new BufferedImage[2];
-        exitBtn[0] = sheet.crop(0, 376+72, 152, 72);
-        exitBtn[1] = sheet.crop(0, 520, 152, 72);
-        //IN GAME
+        resumeBtn = new BufferedImage[3];
 
-        //statics
-        stone = sheet.crop(0,0,width,height);
-        grass = second.crop(32, 80,16,16);
-        dirt = grass;
+        int it = 0;
+        setFrames(newGameBtn, sheet, buttonX, buttonY, buttonWidthExtended, buttonHeight, false);
+        it += newGameBtn.length;
+        setFrames(optionsBtn, sheet, buttonX, buttonY + it*buttonHeight, buttonWidth, buttonHeight, false);
+        it += optionsBtn.length;
+        setFrames(resumeBtn, sheet, buttonX, buttonY + it*buttonHeight, buttonWidth, buttonHeight, false);
+        it += resumeBtn.length;
+        setFrames(exitBtn, sheet, buttonX, buttonY + it*buttonHeight, buttonWidthCompacted, buttonHeight, false);
+    }
 
-        /* STAND */
-        player_stand = new BufferedImage[2];
-        player_stand[0] = second.crop(128,135, 16, 24);
-        player_stand[1] = second.crop(128,135, 16, 24);
+    private static void setFrames(BufferedImage []images, SpriteSheet spriteSheet, int playerX, int playerY, int width, int height, boolean XorY) {
+        int i = 0, n = images.length;
+        while (i++ < n)
+            images[i - 1] = (XorY)
+                    ? spriteSheet.crop(playerX + (i - 1) *width, playerY, width, height)
+                    : spriteSheet.crop(playerX, playerY + (i - 1) *height, width, height);
+    }
 
-        /* UP */
-        player_up = new BufferedImage[6];
-        player_up[0] = second.crop(128,199, 16, 24);
-        player_up[1] = second.crop(128 + 16,199, 16, 24);
-        player_up[2] = second.crop(128 + 16 + 16,199, 16, 24);
-        player_up[3] = second.crop(128 + 16 + 16 + 16,199, 16, 24);
-        player_up[4] = second.crop(128 + 16 + 16 + 16,199, 16, 24);
-        player_up[5] = second.crop(128 + 16 + 16 + 16 + 16 ,199, 16, 24);
+    private static void setPlayerMovements(SpriteSheet dungeonTileset) {
+        int playerX = 128;
+        int playerDownY = 135, playerUpY = 196, playerRightY = 107, playerLeftY = 168;
+        int width = 16, height = 24;
 
-        /* DOWN */
+        player_up =new BufferedImage[6];
         player_down = new BufferedImage[6];
-        player_down[0] = second.crop(128,135, 16, 24);
-        player_down[1] = second.crop(128 + 16,135, 16, 24);
-        player_down[2] = second.crop(128 + 16 + 16,135, 16, 24);
-        player_down[3] = second.crop(128 + 16 + 16 + 16,135, 16, 24);
-        player_down[4] = second.crop(128 + 16 + 16 + 16,135, 16, 24);
-        player_down[5] = second.crop(128 + 16 + 16 + 16 + 16 ,135, 16, 24);
-
-        /* RIGHT */
         player_right = new BufferedImage[8];
-        player_right[0] = second.crop(128,101,16,27);
-        player_right[1] = second.crop(128 + 16,101, 16,27);
-        player_right[2] = second.crop(128 + 16 + 16,101,16,27);
-        player_right[3] = second.crop(128 + 16 + 16 + 16,101,16,27);
-        player_right[4] = second.crop(128 + 16 + 16 + 16 + 16,101,16,27);
-        player_right[5] = second.crop(128 + 16 + 16 + 16 + 16 + 16,101,16,27);
-        player_right[6] = second.crop(128 + 16 + 16 + 16 + 16 + 16 + 16,101,16,27);
-        player_right[7] = second.crop(128 + 16 + 16 + 16 + 16 + 16 + 16 + 16,101,16,27);
-
-        /* LEFT */
         player_left = new BufferedImage[8];
-        player_left[0] = second.crop(128,163,16,27);
-        player_left[1] = second.crop(128 + 16,163, 16,27);
-        player_left[2] = second.crop(128 + 16 + 16,163,16,27);
-        player_left[3] = second.crop(128 + 16 + 16 + 16,163,16,27);
-        player_left[4] = second.crop(128 + 16 + 16 + 16 + 16,163,16,27);
-        player_left[5] = second.crop(128 + 16 + 16 + 16 + 16 + 16,163,16,27);
-        player_left[6] = second.crop(128 + 16 + 16 + 16 + 16 + 16 + 16,163,16,27);
-        player_left[7] = second.crop(128 + 16 + 16 + 16 + 16 + 16 + 16 + 16,163,16,27);
 
+        setFrames(player_up, dungeonTileset,playerX ,playerUpY, width, height,true );
+        setFrames(player_down, dungeonTileset,playerX, playerDownY, width, height, true);
+        setFrames(player_right, dungeonTileset,playerX, playerRightY, width, height, true);
+        setFrames(player_left, dungeonTileset,playerX, playerLeftY, width, height, true);
+    }
+
+    public static void init(){
+        SpriteSheet dungeonTileset = new SpriteSheet(ImageLoader.loadImage("/textures/dungeontileset.png"));
+        background = ImageLoader.loadImage("/textures/background.jpg");
+        setButtons();
+                            /** IN GAME */
+
+        floorTile = dungeonTileset.crop(32, 80,16,16);
+
+        setPlayerMovements(dungeonTileset);
 
 //        NPC = sheet.crop(2* width,4*height, width, height);
 //        NPC2 = sheet.crop(width,5*height, width, height);
 
+        int width = 16, height = 16;
         //WALLS
-        wallMid = second.crop(17,12,16,16);
-        wallLeft = second.crop(0,185,16,16);
-        wallLeftCorner = second.crop(0,202,16,16);
-        blankSpace = second.crop(0,420, 16,16);
-        topWall = second.crop(65,161,16, 16);
-        rightWall = second.crop(12,185,16,16);
-        bottomRightCorner = second.crop(39,202,16,16);
-        topLeftCornerWall = second.crop(12, 162, 16, 16);
+        wallMid = dungeonTileset.crop(17,12, width, height);
+        wallLeft = dungeonTileset.crop(0,177, width, height);
+        wallLeftCorner = dungeonTileset.crop(0,202, width, height);
+        blankSpace = dungeonTileset.crop(0,420, width, height);
+        wallTop = dungeonTileset.crop(65,161, width, height);
+        wallRight = dungeonTileset.crop(12,185, width, height);
+        wallBottomRightCorner = dungeonTileset.crop(39,202, width, height);
+        wallTopLeftCorner = dungeonTileset.crop(0, 162, width, height);
+        wallTopRightCorner = dungeonTileset.crop(39, 162, width, height);
+        wallInteriorLeftCorner = dungeonTileset.crop(16, 496, width,height);
+        wallInteriorRightCorner = dungeonTileset.crop(16 + width, 496, width, height);
     }
-
-
 }
