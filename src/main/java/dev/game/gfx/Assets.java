@@ -3,8 +3,10 @@ package dev.game.gfx;
 import java.awt.image.BufferedImage;
 
 public class Assets {
-    public static BufferedImage floorTile,stone;
-    public static BufferedImage wallMid, blankSpace, wallLeft, wallLeftCorner, wallTop, wallRight, wallBottomRightCorner, wallTopLeftCorner, wallTopRightCorner;
+    public static BufferedImage floorTile,blankSpace ;
+    public static BufferedImage wallMid, wallLeft, wallLeftCorner, wallTop, wallRight,
+            wallBottomRightCorner, wallTopLeftCorner, wallTopRightCorner, wallInteriorLeftCorner,
+            wallInteriorRightCorner;
     public static BufferedImage[] player_right, player_left, player_up, player_down;
     public static BufferedImage[] newGameBtn, resumeBtn, exitBtn, optionsBtn;
     public static BufferedImage background;
@@ -79,5 +81,7 @@ public class Assets {
         wallBottomRightCorner = dungeonTileset.crop(39,202, width, height);
         wallTopLeftCorner = dungeonTileset.crop(0, 162, width, height);
         wallTopRightCorner = dungeonTileset.crop(39, 162, width, height);
+        wallInteriorLeftCorner = dungeonTileset.crop(16, 496, width,height);
+        wallInteriorRightCorner = dungeonTileset.crop(16 + width, 496, width, height);
     }
 }

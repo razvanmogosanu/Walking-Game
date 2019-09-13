@@ -14,6 +14,8 @@ public class Tile {
     public static Tile wallBottomRightCorner = new WallBottomRightCorner(6);
     public static Tile wallTopLeftCorner = new WallTopLeftCorner(7);
     public static Tile wallTopRightCorner = new WallTopRightCorner(8);
+    public static Tile wallInteriorLeftCorner = new WallInteriorLeftCorner(9);
+    public static Tile wallInteriorRightCorner = new WallInteriorRightCorner(10);
 
     public static final int TILEWIDTH = 48, TILEHEIGHT = 48;
 
