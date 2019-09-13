@@ -41,7 +41,7 @@ public class Assets {
 
     private static void setPlayerMovements(SpriteSheet dungeonTileset) {
         int playerX = 128;
-        int playerDownY = 135, playerUpY = 196, playerRightY = 107, playerLeftY = 163;
+        int playerDownY = 135, playerUpY = 196, playerRightY = 107, playerLeftY = 168;
         int width = 16, height = 24;
 
         player_up =new BufferedImage[6];
