@@ -13,7 +13,6 @@ public class EntityManager {
     private Player player;
     private ArrayList<Entity> entities;
 
-    @SuppressWarnings("ComparatorMethodParameterNotUsed")
     private Comparator<Entity> renderSorter = (a, b) -> (a.getY() + a.getHeight() < b.getY() + b.getHeight()) ? -1 : 1;
 
     public EntityManager(Handler handler, Player player) {
